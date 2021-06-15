@@ -1,0 +1,52 @@
+
+
+[일정관리 시스템 만들기]
+{요구사항}
+
+1.달력형식의 화면출력
+2.날짜에 일정이 있는지 없는지 확인 가능해야 한다.
+3. 날짜를 클릭하면 일정을 확인할 수 있어야 한다.
+4. 날짜와 일정 등록이 가능해야한다.
+5. 일정의 상세보기가 가능해야한다.
+5. 일정이 수정 가능해야한다.
+6. 일정이 삭제 가능해야한다.
+
+{화면목록}
+1. planList.jsp(메인화면) - 달력모양
+2. planWrite.jsp(등록화면) - 저장이되어야한다. 팝업형태로 등록
+3. planView.jsp(상세화면) - 팝업
+4. planModify.jsp(수정화면) - 팝업수정
+
+{프로그램목록}
+1. planList.jsp(메인화면) - 달력모양
+2. planWrite.jsp(등록화면) - 저장이되어야한다. 팝업형태로 등록
+3. planWriteSave.jsp
+4. planView.jsp(상세화면) - 팝업 
+5. planDelete.jsp(삭제처리)
+6. planModify.jsp(수정화면) - 팝업수정
+7. planModifySave.jsp(수정처리)
+
+
+{테이블 생성}
+1. 고유번호 - unq
+2. 회원아이디 - userid
+3. 일정 날짜 - pdate
+4. 일정 제목 - title
+5. 일정 내용 - content
+
+create table plan(
+	unq int unsigned not null auto_increament,
+	userid vachar(20) not null,
+	pdate date not null, 
+	title varchar(50) not null,
+	content text,
+	primary key(unq)
+	
+);
+
+
+
+
+
+1.요청을 잘 분석
+2.응답을 잘 생성
