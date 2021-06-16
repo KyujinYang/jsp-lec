@@ -2,6 +2,7 @@
 <%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +26,14 @@
 		String realPath2 = ImageListServlet.class.getResource("/kr/or/ddit/servlet01/0.jpg").getFile();
 		File classPathRes = new File(realPath2);
 		
+		String userAgent = request.getHeader("user-agent");
+		
 
-	%>
+%>
+
+	
+	
+	
 <!-- 1, 2, 3 출력 -->
 	<%=fileSystemRes.length() %>
 	<%=realPath %> : <%=webRes.length() %>
@@ -40,6 +47,7 @@
 	<%=request.getRequestURI() %>
 	<%=request.getRequestURL() %>
 	
+	<%out.print ("USER AGENT IS " +userAgent);%>
 		자원에 접근하는 경로 표기법
 		1. 상대 경로 : 경로가 생략된 구조. wild card(., ..)
 				  - 현재 위치(브라우저의 주소)를 기준으로 실제 자원의 절대 경로를 판단함.
