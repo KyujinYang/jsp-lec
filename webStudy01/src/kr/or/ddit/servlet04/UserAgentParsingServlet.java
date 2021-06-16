@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.enumtype.BrowserType;
+import kr.or.ddit.enumtype.OsType;
 
 @WebServlet ("/04/getBrowserName")
 public class UserAgentParsingServlet extends HttpServlet{
@@ -21,14 +22,13 @@ public class UserAgentParsingServlet extends HttpServlet{
    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       String accept = req.getHeader("Accept");
       String userAgent = req.getHeader("user-agent").toUpperCase();
-      
-      
       String browser = BrowserType.parseUserAgent(userAgent);
-      
+      String Os = OsType.parseOsAgent(userAgent);
+
       Map<String, Object> target = new HashMap<>();
       target.put("browser",browser);
-      
-      
+      target.put("Os",Os);
+//크롬 - 서버
       
       StringBuffer json = new StringBuffer();
       String PROPPTRN = "\"%s\" : \"%s\" , ";
@@ -54,22 +54,22 @@ public class UserAgentParsingServlet extends HttpServlet{
       
       
       
-      String mime = MimeType.findMimeText(accept);
+      MimeType mime = MimeType.findMimeType(accept);
       Object data = null;
       
-      if(accept.contains("json")) {
-    	  
+      if(MimeType.JSON.equals(mime)) {
+    	  	data = json;
       }else {
     	  data = browser;
       }
       
       
       
-      resp.setContentType(mime);
+      resp.setContentType(mime.getmimeText());
       try(
             PrintWriter out = resp.getWriter();
       ){
-         out.println(browser);
+         out.println(data);
       }
    }
 }

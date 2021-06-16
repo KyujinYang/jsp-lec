@@ -12,8 +12,8 @@
 <script tpye = "text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.6.0.min.js"></script>
 <script>
 $(function(){
-		const PATTERN = "당신의 브라우저는 %s 입니다. OS종류는 %s 입니다";
-		let resultArea = $("#resultArea");
+	const PATTERN = "당신의 브라우저는<span> %s </span>입니다. OS의 종류는<span> %o </span>입니다.";
+	let resultArea = $("#resultArea");
 		$("a:first").on("click",function(){
 			event.preventDefault();
 			//비동기 요청 발생시키기
@@ -21,20 +21,23 @@ $(function(){
 			url : "<%=request.getContextPath()%>/04/getBrowserName",
 			dataType : "json",  //request header(Accept) /reponse header(Content-Type)
 								//text : text/plain, html : text/html, json : application/json, script : text/javascript
-
+	//보낸 data
 			success : function(resp) {
 				
-				lef message = null;
+				let message = null;
+				let Os = null;
 				if(typeof resp == "string"){
 					message = resp;
+					Os =resp;
 					
 				}else{
 					message = resp.browser;	
+					Os = resp.Os;
 				}
 				//비동기 요청 stack 비우기
 				resultArea.empty();
 				resultArea.append(
-					$("<p>").html(PATTERN.replace("%s", message))
+					$("<p>").html(PATTERN.replace("%s", message).replace("%o", Os))
 				)
 			},
 			error : function(errorResp) {	
@@ -43,7 +46,6 @@ $(function(){
 		});
 		return false;
 	});
-				
 });
 </script>
 </head>
