@@ -19,9 +19,16 @@
 	<h4></h4>
 	<script type="text/javascript">
 	$(".msgBtn").on("click",function(){
+		let lang = $(this).data("lang")
+		let data ={}
+		if(lang){
+			data.lang = lang;
+		}
 		$.ajax({
 			//클라이언트사이드방식의 url
 			url : "<%=request.getContextPath()%>/05/messageServiceWithLocale",
+			data : data,
+			method : "post",
 			
 			dataType : "json",
 			//resp : resourceBundle

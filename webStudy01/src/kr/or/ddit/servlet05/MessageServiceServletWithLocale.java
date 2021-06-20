@@ -22,9 +22,15 @@ import kr.or.ddit.servlet04.MimeType;
 public class MessageServiceServletWithLocale extends HttpServlet {
 
 
+
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		ResourceBundle bundle = ResourceBundle.getBundle("kr.or.ddit.servlet05.message", Locale.ENGLISH);
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Locale locale = req.getLocale();
+		String lang = req.getParameter("lang");
+		if(lang!=null && !lang.isEmpty()) {
+			locale = Locale.forLanguageTag(lang);
+		}
+		ResourceBundle bundle = ResourceBundle.getBundle("kr.or.ddit.servlet05.message", locale);
 		// 1.비동기에대한 응답데이터로 보낸다.
 		/**
 		 * mime 설정 : Content-Type : 요청안에서
@@ -67,4 +73,6 @@ public class MessageServiceServletWithLocale extends HttpServlet {
 	}
 
 }
+	
+	
 }
