@@ -43,9 +43,9 @@ xml :
 	<script type="text/javascript">
 	$("#left").on("change",function(){
 		let data ={}
-		if(){
+// 		if(){
 			
-		}
+// 		}
 		$.ajax({
 			//클라이언트사이드방식의 url
 			url : "<%=request.getContextPath()%>/05/messageServiceWithLocale",

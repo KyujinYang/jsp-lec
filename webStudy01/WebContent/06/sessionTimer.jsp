@@ -3,7 +3,6 @@
 	pageEncoding="UTF-8"%>
 
 
-1. 
 
 <!DOCTYPE html>
 <html>
@@ -17,8 +16,8 @@
 	$(function(){
 		let element = $("#timerArea").sessionTimer({
 			timeout : <%=session.getMaxInactiveInterval() %>
-			url :"<%=request.getContextPath()%>/sessionExtend"
-		
+			
+		});
 		console.log("=========");
 		console.log(element);
 		
@@ -40,12 +39,12 @@
 		a) 타이머 리셋 
 		b) 세션 연장을 위한 새로운 요청 발생(비동기, body가 없는 응답)
 
-	<div id="messageArea"> 세션을 연장할까요? 
-	<input type="button" id="yesBtn" value="예" /> 
-	<input type="button" id="noBtn" value="아니오" />
+<!-- 	<div id="messageArea"> 세션을 연장할까요?  -->
+<!-- 	<input type="button" id="yesBtn" value="예" />  -->
+<!-- 	<input type="button" id="noBtn" value="아니오" /> -->
 
 
-	</div>
+<!-- 	</div> -->
 
 
 	

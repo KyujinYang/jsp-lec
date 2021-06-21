@@ -47,7 +47,8 @@
 		* Refresh : auto request - 서버사이드,클라이언트사이드방식 -html,자바스크립트형태로 모두 발생가능하다.
 			<a href = "autoRequest.jsp">Refresh를 통한 자동 요청</a>
 		
-		* Location :
+		* Location : 페이지 이동
+			<a href = "flowControl.jsp">페이지 이동</a>
 		
 	3.Response Body : 
 	
