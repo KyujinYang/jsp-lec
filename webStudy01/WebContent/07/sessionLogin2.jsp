@@ -23,10 +23,9 @@
 <!--로그인이 안되었을 때 보여줄 내용   -->
    <form action="<%=request.getContextPath()%>/sessionLogin.do" method="post">
    <table border = "1" style="margin:0 auto;">
-   <ul>
+   <tr>
    
-      <li> 아이디</li>
-      			 
+      <td> ID: </td>
       <td><input type = "text" name = "userid" placeholder="ID 입력하세요"></td>
    </tr>
    <tr>

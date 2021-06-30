@@ -42,8 +42,6 @@
 <!-- 	<div id="messageArea"> 세션을 연장할까요?  -->
 <!-- 	<input type="button" id="yesBtn" value="예" />  -->
 <!-- 	<input type="button" id="noBtn" value="아니오" /> -->
-
-
 <!-- 	</div> -->
 
 
